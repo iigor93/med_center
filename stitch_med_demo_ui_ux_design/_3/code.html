@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface": "#121c2a",
+                    "surface-container-highest": "#d9e3f6",
+                    "secondary-fixed-dim": "#ffb3ad",
+                    "on-background": "#121c2a",
+                    "on-surface-variant": "#3c4947",
+                    "on-secondary-fixed": "#410004",
+                    "surface-tint": "#006b5f",
+                    "surface-bright": "#f8f9ff",
+                    "on-primary": "#ffffff",
+                    "primary-fixed": "#71f8e4",
+                    "on-primary-fixed-variant": "#005048",
+                    "on-secondary-container": "#fffbff",
+                    "surface": "#f8f9ff",
+                    "on-tertiary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-container": "#6c2106",
+                    "inverse-surface": "#27313f",
+                    "secondary-container": "#da3437",
+                    "tertiary-fixed": "#ffdbd0",
+                    "tertiary-container": "#f38764",
+                    "inverse-on-surface": "#eaf1ff",
+                    "primary-fixed-dim": "#4fdbc8",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed-variant": "#930013",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed": "#ffdad7",
+                    "primary": "#006b5f",
+                    "tertiary": "#9b4426",
+                    "on-tertiary-fixed-variant": "#7c2d11",
+                    "secondary": "#b61722",
+                    "background": "#f8f9ff",
+                    "outline": "#6c7a77",
+                    "on-error": "#ffffff",
+                    "surface-container": "#e6eeff",
+                    "error": "#ba1a1a",
+                    "surface-variant": "#d9e3f6",
+                    "inverse-primary": "#4fdbc8",
+                    "primary-container": "#14b8a6",
+                    "outline-variant": "#bbcac6",
+                    "on-tertiary-fixed": "#3a0b00",
+                    "on-primary-container": "#00423b",
+                    "surface-container-low": "#eff4ff",
+                    "surface-dim": "#d0dbed",
+                    "surface-container-high": "#dee9fc",
+                    "on-primary-fixed": "#00201c",
+                    "tertiary-fixed-dim": "#ffb59e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "lg": "24px",
+                    "base": "4px",
+                    "margin-desktop": "48px",
+                    "md": "16px",
+                    "xl": "32px",
+                    "sm": "8px",
+                    "xs": "4px",
+                    "gutter": "16px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "h3": ["Inter"],
+                    "h1-mobile": ["Inter"],
+                    "h2": ["Inter"],
+                    "body": ["Inter"],
+                    "small": ["Inter"],
+                    "h1": ["Inter"],
+                    "button": ["Inter"],
+                    "label": ["Inter"]
+            },
+            "fontSize": {
+                    "h3": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "h1-mobile": ["26px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "h2": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "small": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "h1": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "button": ["16px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "label": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-surface dark:bg-on-surface h-[120px]">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop w-full h-full">
+<div class="font-h2 text-h2-mobile md:text-h2 text-primary dark:text-primary-fixed flex items-center gap-2">
+<span class="material-symbols-outlined text-4xl" data-icon="medical_services">medical_services</span>
+<span class="font-h2">МедСервис Demo</span>
+</div>
+<button class="text-primary dark:text-primary-fixed hover:opacity-80 transition-opacity active:scale-95 duration-100">
+<span class="material-symbols-outlined text-3xl" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+<!-- NavigationDrawer (System Status) -->
+<div class="mt-[120px] w-full py-base px-margin-mobile flex items-center gap-sm bg-surface-container-low dark:bg-surface-container-highest">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed" data-icon="calendar_today">calendar_today</span>
+<span class="font-small text-small text-on-surface-variant">Демо-режим. Данные не сохраняются</span>
+</div>
+<main class="pb-[100px] flex flex-col min-h-screen">
+<!-- Top Half: Map Placeholder -->
+<section class="relative w-full h-[353px] md:h-[442px] overflow-hidden">
+<div class="absolute inset-0 bg-surface-container">
+<img class="w-full h-full object-cover grayscale-[20%] opacity-80" data-alt="A detailed digital map interface showing a modern urban layout with clean lines and a soft color palette. Minimalist streets and blocks are rendered in light grays and blues, creating a professional medical service aesthetic. Scattered across the map are vibrant red medical cross icons acting as markers, designed to be highly visible and clear. The lighting is bright and even, suggesting a high-end digital healthcare application interface." data-location="Moscow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdoWtLsPdXztm3MdUx2c100aTy27gdblnl5r7UP-ZXeUl2Zc3186oRd-v050-20fytnkuAdsew-aq2YqqUuFXrT1xNr8wceoecRMJ9QXzvDelZ58QVq0ZX5OzgOxh04UbPWDLo0qoHYEXaNz6zQ03jivyH8OG1R8Ab6vxYbkplxQ8RQZRrX5Wa9wgbM6Q9aiSCNYNe4eXA7ZkJjpLjF_ARjZaOkCJD3tj0nKrUMZXzGsJOgX5S7ZmQXkYoa0kIJ0kgwLTqOmbTIsU"/>
+</div>
+<!-- Map Markers (Simulated) -->
+<div class="absolute top-1/4 left-1/3 flex flex-col items-center">
+<div class="bg-secondary p-2 rounded-full shadow-lg border-2 border-white transform hover:scale-110 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-white text-base" data-icon="add" style="font-variation-settings: 'wght' 700;">add</span>
+</div>
+</div>
+<div class="absolute top-1/2 left-1/2 flex flex-col items-center">
+<div class="bg-secondary p-2 rounded-full shadow-lg border-2 border-white animate-bounce">
+<span class="material-symbols-outlined text-white text-base" data-icon="add" style="font-variation-settings: 'wght' 700;">add</span>
+</div>
+</div>
+<div class="absolute bottom-1/4 right-1/4 flex flex-col items-center">
+<div class="bg-secondary p-2 rounded-full shadow-lg border-2 border-white">
+<span class="material-symbols-outlined text-white text-base" data-icon="add" style="font-variation-settings: 'wght' 700;">add</span>
+</div>
+</div>
+<!-- Map Controls -->
+<div class="absolute right-margin-mobile bottom-lg flex flex-col gap-sm">
+<button class="bg-surface p-2 rounded-lg shadow-md text-on-surface active:scale-95">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+<button class="bg-surface p-2 rounded-lg shadow-md text-on-surface active:scale-95">
+<span class="material-symbols-outlined" data-icon="remove">remove</span>
+</button>
+<button class="bg-surface p-2 rounded-lg shadow-md text-primary active:scale-95">
+<span class="material-symbols-outlined" data-icon="my_location">my_location</span>
+</button>
+</div>
+</section>
+<!-- Bottom Half: List of Centers -->
+<section class="flex-grow bg-background px-margin-mobile md:px-margin-desktop py-lg">
+<div class="max-w-[1200px] mx-auto">
+<h2 class="font-h2 text-h2 mb-lg">Медицинские центры</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
+<!-- Center Card 1 -->
+<div class="bg-surface-container-lowest p-lg rounded-xl shadow-[0_4px_12px_0_rgba(0,0,0,0.05)] flex flex-col justify-between hover:shadow-md transition-shadow">
+<div>
+<div class="flex justify-between items-start mb-sm">
+<h3 class="font-h3 text-h3 text-on-surface">Центральный Филиал</h3>
+<span class="bg-primary-container text-on-primary-container px-2 py-1 rounded-full font-label text-[10px]">2.4 км</span>
+</div>
+<p class="font-small text-small text-outline mb-md">ул. Ленина, д. 45, корп. 1</p>
+<div class="flex items-center gap-base mb-lg text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+<span class="font-small text-small">Пн–Пт: 8:00–20:00</span>
+</div>
+</div>
+<button class="w-full border-2 border-primary text-primary font-button text-button py-3 rounded-full hover:bg-primary-container/10 transition-colors active:scale-95">
+                            Выбрать
+                        </button>
+</div>
+<!-- Center Card 2 -->
+<div class="bg-surface-container-lowest p-lg rounded-xl shadow-[0_4px_12px_0_rgba(0,0,0,0.05)] border-2 border-primary-container flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden">
+<div class="absolute top-0 right-0 bg-primary text-white text-[10px] px-3 py-1 rounded-bl-xl font-bold uppercase tracking-wider">
+                            Рекомендуем
+                        </div>
+<div>
+<div class="flex justify-between items-start mb-sm">
+<h3 class="font-h3 text-h3 text-on-surface">Семейная Клиника</h3>
+<span class="bg-primary-container text-on-primary-container px-2 py-1 rounded-full font-label text-[10px]">4.1 км</span>
+</div>
+<p class="font-small text-small text-outline mb-md">Пресненская наб., д. 12</p>
+<div class="flex items-center gap-base mb-lg text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+<span class="font-small text-small">Пн–Пт: 8:00–20:00</span>
+</div>
+</div>
+<button class="w-full bg-primary text-white font-button text-button py-3 rounded-full shadow-lg active:scale-95 transition-transform">
+                            Выбрать
+                        </button>
+</div>
+<!-- Center Card 3 -->
+<div class="bg-surface-container-lowest p-lg rounded-xl shadow-[0_4px_12px_0_rgba(0,0,0,0.05)] flex flex-col justify-between hover:shadow-md transition-shadow">
+<div>
+<div class="flex justify-between items-start mb-sm">
+<h3 class="font-h3 text-h3 text-on-surface">Детский Диагностический</h3>
+<span class="bg-primary-container text-on-primary-container px-2 py-1 rounded-full font-label text-[10px]">5.8 км</span>
+</div>
+<p class="font-small text-small text-outline mb-md">пр-т Вернадского, д. 22</p>
+<div class="flex items-center gap-base mb-lg text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+<span class="font-small text-small">Пн–Пт: 8:00–20:00</span>
+</div>
+</div>
+<button class="w-full border-2 border-primary text-primary font-button text-button py-3 rounded-full hover:bg-primary-container/10 transition-colors active:scale-95">
+                            Выбрать
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center py-sm bg-surface dark:bg-on-surface rounded-t-xl shadow-[0_-4px_12px_0_rgba(0,0,0,0.05)]">
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:bg-surface-container-low dark:hover:bg-surface-variant p-2 rounded-lg transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label text-label">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed font-bold hover:bg-surface-container-low dark:hover:bg-surface-variant p-2 rounded-lg transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+<span class="font-label text-label">Centers</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:bg-surface-container-low dark:hover:bg-surface-variant p-2 rounded-lg transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="medical_information">medical_information</span>
+<span class="font-label text-label">Doctors</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:bg-surface-container-low dark:hover:bg-surface-variant p-2 rounded-lg transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label text-label">Profile</span>
+</a>
+</nav>
+<script>
+        // Simple map marker interaction
+        document.querySelectorAll('.animate-bounce').forEach(marker => {
+            marker.addEventListener('click', () => {
+                marker.classList.remove('animate-bounce');
+                setTimeout(() => marker.classList.add('animate-bounce'), 100);
+            });
+        });
+    </script>
+</body></html>

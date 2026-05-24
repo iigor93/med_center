@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<html lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>МедСервис Demo - Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-surface": "#121c2a",
+                      "surface-container-highest": "#d9e3f6",
+                      "secondary-fixed-dim": "#ffb3ad",
+                      "on-background": "#121c2a",
+                      "on-surface-variant": "#3c4947",
+                      "on-secondary-fixed": "#410004",
+                      "surface-tint": "#006b5f",
+                      "surface-bright": "#f8f9ff",
+                      "on-primary": "#ffffff",
+                      "primary-fixed": "#71f8e4",
+                      "on-primary-fixed-variant": "#005048",
+                      "on-secondary-container": "#fffbff",
+                      "surface": "#f8f9ff",
+                      "on-tertiary": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "error-container": "#ffdad6",
+                      "on-tertiary-container": "#6c2106",
+                      "inverse-surface": "#27313f",
+                      "secondary-container": "#da3437",
+                      "tertiary-fixed": "#ffdbd0",
+                      "tertiary-container": "#f38764",
+                      "inverse-on-surface": "#eaf1ff",
+                      "primary-fixed-dim": "#4fdbc8",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-fixed-variant": "#930013",
+                      "on-secondary": "#ffffff",
+                      "secondary-fixed": "#ffdad7",
+                      "primary": "#006b5f",
+                      "tertiary": "#9b4426",
+                      "on-tertiary-fixed-variant": "#7c2d11",
+                      "secondary": "#b61722",
+                      "background": "#f8f9ff",
+                      "outline": "#6c7a77",
+                      "on-error": "#ffffff",
+                      "surface-container": "#e6eeff",
+                      "error": "#ba1a1a",
+                      "surface-variant": "#d9e3f6",
+                      "inverse-primary": "#4fdbc8",
+                      "primary-container": "#14b8a6",
+                      "outline-variant": "#bbcac6",
+                      "on-tertiary-fixed": "#3a0b00",
+                      "on-primary-container": "#00423b",
+                      "surface-container-low": "#eff4ff",
+                      "surface-dim": "#d0dbed",
+                      "surface-container-high": "#dee9fc",
+                      "on-primary-fixed": "#00201c",
+                      "tertiary-fixed-dim": "#ffb59e"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "lg": "24px",
+                      "base": "4px",
+                      "margin-desktop": "48px",
+                      "md": "16px",
+                      "xl": "32px",
+                      "sm": "8px",
+                      "xs": "4px",
+                      "gutter": "16px",
+                      "margin-mobile": "16px"
+              },
+              "fontFamily": {
+                      "h3": ["Inter"],
+                      "h1-mobile": ["Inter"],
+                      "h2": ["Inter"],
+                      "body": ["Inter"],
+                      "small": ["Inter"],
+                      "h1": ["Inter"],
+                      "button": ["Inter"],
+                      "label": ["Inter"]
+              },
+              "fontSize": {
+                      "h3": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                      "h1-mobile": ["26px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "h2": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                      "body": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "small": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "h1": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "button": ["16px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                      "label": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container/30">
+<!-- Top Navigation -->
+<header class="bg-surface dark:bg-on-surface sticky top-0 z-50 h-[80px] md:h-[120px]">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop w-full h-full">
+<div class="font-h2 text-h2-mobile md:text-h2 text-primary dark:text-primary-fixed flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="medical_services">medical_services</span>
+<span>МедСервис Demo</span>
+</div>
+<div class="flex items-center gap-md">
+<button class="relative hover:opacity-80 transition-opacity active:scale-95">
+<span class="material-symbols-outlined text-primary text-[28px]" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-0 w-2.5 h-2.5 bg-secondary rounded-full border-2 border-surface"></span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container/20">
+<img class="w-full h-full object-cover" data-alt="A professional close-up portrait of a modern healthcare administrator in a clean clinical setting. The lighting is soft and natural, emphasizing a trustworthy and empathetic personality. The visual style is high-utility and corporate with a focus on pristine white backgrounds and subtle medical equipment in the soft-focus background, maintaining a turquoise and white color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrWNWaMu7CCLSvHsj_yomo1QfZPfSOmEeydTqmjq9S6rUmQGJs1C51qopY7wE6MmuwQvzhdKR939ud9PR5D3TG9-W_FQL53R1WPbTJNJQU4SfHOTj4tL2HiwSn4gFUg6HsIZfOibP5gMRQvjlEZlyunhdfXdyfLQUtnmeUzb7tXJ9TrQHOfo210-xFq3VygTf4TX98YQ1F6HnVRW8zc80TNFN2laTBcg_7jHJOruyHklwFh4ZF03dJRAbLVJFS-wpgF5uObmw0APg"/>
+</div>
+</div>
+</div>
+</header>
+<!-- System Status Banner -->
+<aside class="w-full py-base px-margin-mobile flex items-center gap-sm bg-surface-container-low dark:bg-surface-container-highest">
+<span class="material-symbols-outlined text-primary font-small text-small" data-icon="calendar_today">calendar_today</span>
+<span class="font-small text-small text-on-surface-variant">Демо-режим. Данные не сохраняются</span>
+</aside>
+<main class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop py-lg space-y-xl pb-32">
+<!-- Block 1: Double Cards -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Appointment Card -->
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-[0_4px_12px_0_rgba(0,0,0,0.05)] flex flex-col justify-between border border-surface-container">
+<div>
+<div class="flex justify-between items-start mb-sm">
+<span class="font-label text-label text-outline uppercase tracking-wider">Ближайшая запись</span>
+<span class="material-symbols-outlined text-primary" data-icon="event">event</span>
+</div>
+<h3 class="font-h3 text-h3 mb-xs">15 мая, 10:00</h3>
+<p class="text-on-surface-variant font-body mb-md">Терапевт: д-р Иванова А.С.</p>
+</div>
+<button class="w-full py-sm rounded-full bg-secondary-container text-on-secondary-container font-button hover:opacity-90 active:scale-95 transition-all">
+                    Отменить
+                </button>
+</div>
+<!-- Lab Results Card -->
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-[0_4px_12px_0_rgba(0,0,0,0.05)] flex flex-col justify-between border border-surface-container">
+<div>
+<div class="flex justify-between items-start mb-sm">
+<span class="font-label text-label text-outline uppercase tracking-wider">Новые анализы</span>
+<span class="material-symbols-outlined text-tertiary" data-icon="biotech">biotech</span>
+</div>
+<div class="inline-flex items-center px-sm py-1 rounded-full bg-primary-container/10 text-primary mb-md">
+<span class="w-2 h-2 rounded-full bg-primary mr-2"></span>
+<span class="font-label text-label">Готово: 2 результата</span>
+</div>
+<p class="text-on-surface-variant font-body mb-md">Ваши показатели обновлены в системе.</p>
+</div>
+<button class="w-full py-sm rounded-full bg-surface-container-highest text-primary font-button hover:bg-surface-variant active:scale-95 transition-all">
+                    Смотреть
+                </button>
+</div>
+</section>
+<!-- Block 2: Quick Actions -->
+<section class="flex gap-md overflow-x-auto hide-scrollbar pb-xs">
+<button class="flex-shrink-0 flex items-center gap-sm px-lg py-md rounded-full bg-primary text-on-primary shadow-lg active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span class="font-button whitespace-nowrap">Записаться</span>
+</button>
+<button class="flex-shrink-0 flex items-center gap-sm px-lg py-md rounded-full bg-surface-container-high text-on-surface hover:bg-surface-container-highest active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="lab_research">lab_research</span>
+<span class="font-button whitespace-nowrap">Анализы</span>
+</button>
+<button class="flex-shrink-0 flex items-center gap-sm px-lg py-md rounded-full bg-surface-container-high text-on-surface hover:bg-surface-container-highest active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="location_on">location_on</span>
+<span class="font-button whitespace-nowrap">Центры</span>
+</button>
+</section>
+<!-- Block 3: Promotions -->
+<section>
+<h2 class="font-h2 text-h2-mobile md:text-h2 mb-md">Акции</h2>
+<div class="flex gap-md overflow-x-auto hide-scrollbar snap-x">
+<div class="flex-shrink-0 w-[280px] md:w-[320px] bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-surface-container snap-start">
+<div class="h-1.5 bg-secondary"></div>
+<div class="p-md">
+<span class="bg-secondary/10 text-secondary px-sm py-1 rounded-full font-label text-label inline-block mb-sm">Акция -20%</span>
+<h4 class="font-h3 text-[18px] mb-lg leading-tight">Первичный приём терапевта</h4>
+<button class="text-primary font-button flex items-center gap-xs hover:gap-sm transition-all">
+                            Узнать <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="flex-shrink-0 w-[280px] md:w-[320px] bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-surface-container snap-start">
+<div class="h-1.5 bg-primary"></div>
+<div class="p-md">
+<span class="bg-primary/10 text-primary px-sm py-1 rounded-full font-label text-label inline-block mb-sm">Check-up</span>
+<h4 class="font-h3 text-[18px] mb-lg leading-tight">Здоровое сердце (расширенный)</h4>
+<button class="text-primary font-button flex items-center gap-xs hover:gap-sm transition-all">
+                            Узнать <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Block 4: Specialties Grid -->
+<section>
+<div class="flex justify-between items-center mb-md">
+<h2 class="font-h2 text-h2-mobile md:text-h2">Направления</h2>
+<button class="text-primary font-label uppercase tracking-widest text-label">Все</button>
+</div>
+<div class="grid grid-cols-3 md:grid-cols-6 gap-md">
+<div class="flex flex-col items-center gap-sm group">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[32px]" data-icon="stethoscope">stethoscope</span>
+</div>
+<span class="font-label text-center">Терапевт</span>
+</div>
+<div class="flex flex-col items-center gap-sm group">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[32px]" data-icon="hearing">hearing</span>
+</div>
+<span class="font-label text-center">ЛОР</span>
+</div>
+<div class="flex flex-col items-center gap-sm group">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[32px]" data-icon="favorite">favorite</span>
+</div>
+<span class="font-label text-center">Кардиолог</span>
+</div>
+<div class="flex flex-col items-center gap-sm group">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[32px]" data-icon="visibility">visibility</span>
+</div>
+<span class="font-label text-center">Окулист</span>
+</div>
+<div class="flex flex-col items-center gap-sm group">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[32px]" data-icon="psychology">psychology</span>
+</div>
+<span class="font-label text-center">Невролог</span>
+</div>
+<div class="flex flex-col items-center gap-sm group">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[32px]" data-icon="nutrition">nutrition</span>
+</div>
+<span class="font-label text-center">Эндокринолог</span>
+</div>
+</div>
+</section>
+<!-- Block 5: Recent Results Table -->
+<section class="bg-surface-container-lowest rounded-xl p-md border border-surface-container shadow-sm">
+<div class="flex justify-between items-center mb-md">
+<h2 class="font-h3 text-h3">Последние результаты</h2>
+<a class="text-primary font-small flex items-center gap-xs" href="#">Все анализы <span class="material-symbols-outlined text-[16px]" data-icon="open_in_new">open_in_new</span></a>
+</div>
+<div class="space-y-sm">
+<!-- Result 1 -->
+<div class="flex items-center justify-between p-sm rounded-lg hover:bg-surface-container-low transition-colors group">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-lg bg-surface flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="description">description</span>
+</div>
+<div>
+<p class="font-body font-medium">Общий анализ крови</p>
+<p class="text-xs text-outline">10 мая 2024</p>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<span class="hidden md:inline-flex px-sm py-0.5 bg-primary-container/10 text-primary text-[10px] uppercase font-bold rounded">Ready</span>
+<button class="p-2 hover:bg-surface-container-highest rounded-full text-primary active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="picture_as_pdf">picture_as_pdf</span>
+</button>
+</div>
+</div>
+<!-- Result 2 -->
+<div class="flex items-center justify-between p-sm rounded-lg hover:bg-surface-container-low transition-colors group">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-lg bg-surface flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="description">description</span>
+</div>
+<div>
+<p class="font-body font-medium">ТТГ (Тиреотропный гормон)</p>
+<p class="text-xs text-outline">08 мая 2024</p>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<span class="hidden md:inline-flex px-sm py-0.5 bg-primary-container/10 text-primary text-[10px] uppercase font-bold rounded">Ready</span>
+<button class="p-2 hover:bg-surface-container-highest rounded-full text-primary active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center py-sm bg-surface dark:bg-on-surface shadow-[0_-4px_12px_0_rgba(0,0,0,0.05)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed font-bold hover:bg-surface-container-low transition-all p-2 rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label text-label">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:bg-surface-container-low transition-all p-2 rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance">account_balance</span>
+<span class="font-label text-label">Centers</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:bg-surface-container-low transition-all p-2 rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="medical_information">medical_information</span>
+<span class="font-label text-label">Doctors</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:bg-surface-container-low transition-all p-2 rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label text-label">Profile</span>
+</a>
+</nav>
+<!-- Contextual FAB (Hidden on scroll or specific screens usually, but shown here for accessibility) -->
+<button class="fixed bottom-24 right-6 w-14 h-14 bg-primary text-on-primary rounded-2xl shadow-xl flex items-center justify-center md:hidden active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[28px]" data-icon="add">add</span>
+</button>
+<script>
+        // Micro-interactions
+        document.querySelectorAll('button, a').forEach(el => {
+            el.addEventListener('click', function(e) {
+                // Ripple or feedback simulation
+                this.classList.add('scale-95');
+                setTimeout(() => this.classList.remove('scale-95'), 100);
+            });
+        });
+
+        // Simple scroll appearance for Top Nav
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 10) {
+                header.classList.add('shadow-md');
+            } else {
+                header.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body></html>

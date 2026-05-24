@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<html lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface": "#121c2a",
+                    "surface-container-highest": "#d9e3f6",
+                    "secondary-fixed-dim": "#ffb3ad",
+                    "on-background": "#121c2a",
+                    "on-surface-variant": "#3c4947",
+                    "on-secondary-fixed": "#410004",
+                    "surface-tint": "#006b5f",
+                    "surface-bright": "#f8f9ff",
+                    "on-primary": "#ffffff",
+                    "primary-fixed": "#71f8e4",
+                    "on-primary-fixed-variant": "#005048",
+                    "on-secondary-container": "#fffbff",
+                    "surface": "#f8f9ff",
+                    "on-tertiary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-container": "#6c2106",
+                    "inverse-surface": "#27313f",
+                    "secondary-container": "#da3437",
+                    "tertiary-fixed": "#ffdbd0",
+                    "tertiary-container": "#f38764",
+                    "inverse-on-surface": "#eaf1ff",
+                    "primary-fixed-dim": "#4fdbc8",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed-variant": "#930013",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed": "#ffdad7",
+                    "primary": "#006b5f",
+                    "tertiary": "#9b4426",
+                    "on-tertiary-fixed-variant": "#7c2d11",
+                    "secondary": "#b61722",
+                    "background": "#f8f9ff",
+                    "outline": "#6c7a77",
+                    "on-error": "#ffffff",
+                    "surface-container": "#e6eeff",
+                    "error": "#ba1a1a",
+                    "surface-variant": "#d9e3f6",
+                    "inverse-primary": "#4fdbc8",
+                    "primary-container": "#14b8a6",
+                    "outline-variant": "#bbcac6",
+                    "on-tertiary-fixed": "#3a0b00",
+                    "on-primary-container": "#00423b",
+                    "surface-container-low": "#eff4ff",
+                    "surface-dim": "#d0dbed",
+                    "surface-container-high": "#dee9fc",
+                    "on-primary-fixed": "#00201c",
+                    "tertiary-fixed-dim": "#ffb59e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "lg": "24px",
+                    "base": "4px",
+                    "margin-desktop": "48px",
+                    "md": "16px",
+                    "xl": "32px",
+                    "sm": "8px",
+                    "xs": "4px",
+                    "gutter": "16px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "h3": ["Inter"],
+                    "h1-mobile": ["Inter"],
+                    "h2": ["Inter"],
+                    "body": ["Inter"],
+                    "small": ["Inter"],
+                    "h1": ["Inter"],
+                    "button": ["Inter"],
+                    "label": ["Inter"]
+            },
+            "fontSize": {
+                    "h3": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "h1-mobile": ["26px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "h2": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "small": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "h1": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "button": ["16px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "label": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation -->
+<header class="fixed top-0 w-full z-40 bg-surface dark:bg-on-surface h-[120px] flex justify-between items-center px-margin-mobile md:px-margin-desktop">
+<div class="font-h2 text-h2 text-primary dark:text-primary-fixed flex items-center gap-2">
+<span class="material-symbols-outlined text-4xl" data-icon="medical_services">medical_services</span>
+<span class="font-h2 text-h2-mobile md:text-h2">МедСервис Demo</span>
+</div>
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-primary dark:text-primary-fixed hover:opacity-80 transition-opacity p-2 active:scale-95 duration-100" data-icon="notifications">notifications</button>
+</div>
+</header>
+<!-- System Status Banner (NavigationDrawer style) -->
+<div class="pt-[120px]">
+<aside class="w-full py-base px-margin-mobile flex items-center gap-sm bg-surface-container-low dark:bg-surface-container-highest">
+<span class="material-symbols-outlined text-primary font-small text-small" data-icon="calendar_today">calendar_today</span>
+<span class="font-small text-small text-on-surface-variant">Демо-режим. Данные не сохраняются</span>
+</aside>
+</div>
+<main class="pb-32 px-margin-mobile md:px-margin-desktop max-w-[1200px] mx-auto mt-lg">
+<!-- Segmented Control -->
+<div class="flex p-1 bg-surface-container rounded-full max-w-md mx-auto mb-xl">
+<button class="flex-1 py-3 px-6 rounded-full font-button text-button transition-all duration-300 bg-primary text-on-primary shadow-sm" data-tab="doctor" onclick="switchTab(this)">К врачу</button>
+<button class="flex-1 py-3 px-6 rounded-full font-button text-button transition-all duration-300 text-on-surface-variant hover:bg-surface-container-high" data-tab="referral" onclick="switchTab(this)">По направлению</button>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg items-start">
+<!-- Selection & Calendar (Main Content) -->
+<div class="lg:col-span-8 space-y-lg">
+<!-- Doctor Selection -->
+<section class="bg-surface-container-lowest p-md md:p-lg rounded-xl shadow-[0_4px_12px_0_rgba(0,0,0,0.05)] border border-surface-container">
+<label class="block font-label text-label text-outline mb-sm">Выберите специалиста</label>
+<div class="relative group">
+<div class="flex items-center gap-md p-md bg-surface border border-surface-container rounded-xl cursor-pointer hover:border-primary-container transition-colors" id="doctor-select" onclick="toggleDropdown()">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="Professional portrait of a male doctor in a white coat and stethoscope, high-key medical clinic setting, bright and sterile lighting, corporate healthcare photography style with soft shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCa5PrFqA_sN7_c0FIcJRlYMiMdFBf0bxS1MjC_EFeOmxNfuxTOO8buhPky_AV3FIKURE4PaTHFxvteWswwG3-MNmsjoB3uI60VU5jUVfbDAZEEW2K9uqvcTZ_2ob_arWzdQJgjtUogMurbAeBwIf8-3TEfR2ICsO0vBQJCbKqGH3Ct_23H2EIrN-kYVk42VIrJH1-AXBtwtCPUP7qWUeuwZOTvv6uAyqTcYm__yhBHZ5Bcq2rL5j16Yy9LCt7fnkgRN8fjJhbWxYg"/>
+<div class="flex-1">
+<p class="font-h3 text-h3 text-on-surface">Д-р Александр Волков</p>
+<p class="font-small text-small text-on-surface-variant">Кардиолог • Стаж 12 лет</p>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors" data-icon="expand_more">expand_more</span>
+</div>
+<!-- Dropdown items (Hidden by default) -->
+<div class="hidden absolute top-full left-0 right-0 mt-2 bg-surface-container-lowest border border-surface-container rounded-xl shadow-xl z-30 overflow-hidden" id="dropdown-menu">
+<div class="p-md flex items-center gap-md hover:bg-surface-container-low cursor-pointer transition-colors border-b border-surface-container">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="A smiling female doctor with glasses and medical attire, warm clinic environment, professional healthcare setting, soft daylight coming from a window, turquoise accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtwVBUgifI8tluPlZdXglUZ2R_DNlc10g6TyU0jIgX70HEGUHwDVCBVvoeJB6IO5Q_2feWf5hDR1a9fViKxdGlpvME3ts4gCmpbH1ovm44vjDMva3ZbbN262Z_HflFLgkaFadZXVu29EI7cyCUkSQMx36Regzg5V0tWE91jGmkCICHdW0iDigOG4qJttH1Loh_9pTQ1JYEM4ZaiNQm5WVG61ZVIS8MFexKfpPRHryfTaxxMzJJZ07MwRlhun_MhdZ9yUHBbg3Xn14"/>
+<div>
+<p class="font-button text-on-surface">Д-р Елена Соколова</p>
+<p class="font-small text-small text-outline">Терапевт</p>
+</div>
+</div>
+<div class="p-md flex items-center gap-md hover:bg-surface-container-low cursor-pointer transition-colors">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Male professional medical worker in scrubs, modern healthcare facility background, sterile lighting, clean corporate UI aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBI0kOhodRh9or2FmAuxzq-JHmmvzmgGgjncwsYTPf0uReYpi39c-M48jB9vFq6v77Be2FQP8-aCHQyVyu3QkcUtcivQjomZ-hsyISFSlFwJGSUPSegG4gJDU5YjSeD99HkIQfVYn3xxRDEKoFy6yrLvJdONd-fbK74nQKLZANzZCjecPNPWR74exSeS1AnGoDSya7s2JWz7GsWgi5uHm25qnL3kwXMTaFrnwJT6DcbL1KG-Tl3x65bUtGUMPMipTGItPpJzYuQhWc"/>
+<div>
+<p class="font-button text-on-surface">Д-р Иван Петров</p>
+<p class="font-small text-small text-outline">Невролог</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Calendar Grid -->
+<section class="bg-surface-container-lowest p-md md:p-lg rounded-xl shadow-[0_4px_12px_0_rgba(0,0,0,0.05)] border border-surface-container">
+<div class="flex justify-between items-center mb-lg">
+<h3 class="font-h3 text-h3 text-on-surface">Октябрь 2023</h3>
+<div class="flex gap-sm">
+<button class="w-10 h-10 flex items-center justify-center rounded-full border border-surface-container hover:bg-surface transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full border border-surface-container hover:bg-surface transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-7 gap-2 text-center">
+<!-- Days of week -->
+<div class="font-label text-label text-outline py-2">Пн</div>
+<div class="font-label text-label text-outline py-2">Вт</div>
+<div class="font-label text-label text-outline py-2">Ср</div>
+<div class="font-label text-label text-outline py-2">Чт</div>
+<div class="font-label text-label text-outline py-2">Пт</div>
+<div class="font-label text-label text-outline py-2">Сб</div>
+<div class="font-label text-label text-outline py-2">Вс</div>
+<!-- Dates -->
+<div class="py-3 rounded-lg text-outline-variant font-body">25</div>
+<div class="py-3 rounded-lg text-outline-variant font-body">26</div>
+<div class="py-3 rounded-lg text-outline-variant font-body">27</div>
+<div class="py-3 rounded-lg text-outline-variant font-body">28</div>
+<div class="py-3 rounded-lg text-outline-variant font-body">29</div>
+<div class="py-3 rounded-lg text-outline-variant font-body">30</div>
+<div class="py-3 rounded-lg bg-surface border border-surface-container text-on-surface font-body hover:border-primary-container cursor-pointer">1</div>
+<div class="py-3 rounded-lg bg-primary-container text-on-primary-container font-bold shadow-sm">2</div>
+<div class="py-3 rounded-lg bg-surface border border-surface-container text-on-surface font-body hover:border-primary-container cursor-pointer">3</div>
+<div class="py-3 rounded-lg bg-surface border border-surface-container text-on-surface font-body hover:border-primary-container cursor-pointer">4</div>
+<div class="py-3 rounded-lg bg-surface border border-surface-container text-on-surface font-body hover:border-primary-container cursor-pointer">5</div>
+<div class="py-3 rounded-lg bg-surface-container text-outline-variant cursor-not-allowed">6</div>
+<div class="py-3 rounded-lg bg-surface-container text-outline-variant cursor-not-allowed">7</div>
+<div class="py-3 rounded-lg bg-surface border border-surface-container text-on-surface font-body hover:border-primary-container cursor-pointer">8</div>
+</div>
+</section>
+<!-- Time Slots -->
+<section class="bg-surface-container-lowest p-md md:p-lg rounded-xl shadow-[0_4px_12px_0_rgba(0,0,0,0.05)] border border-surface-container">
+<h3 class="font-h3 text-h3 text-on-surface mb-lg">Доступное время</h3>
+<div class="grid grid-cols-3 md:grid-cols-4 gap-sm">
+<button class="py-3 px-4 rounded-xl border border-primary-container bg-primary-container text-on-primary-container font-button transition-all">10:00</button>
+<button class="py-3 px-4 rounded-xl border border-surface-container bg-surface text-on-surface hover:border-primary transition-all font-button">11:00</button>
+<button class="py-3 px-4 rounded-xl border border-surface-container bg-surface text-on-surface hover:border-primary transition-all font-button">12:30</button>
+<button class="py-3 px-4 rounded-xl border border-surface-container bg-surface text-on-surface hover:border-primary transition-all font-button">14:00</button>
+<button class="py-3 px-4 rounded-xl border border-surface-container bg-surface text-on-surface hover:border-primary transition-all font-button">15:00</button>
+<button class="py-3 px-4 rounded-xl border border-surface-container bg-surface text-on-surface hover:border-primary transition-all font-button">16:30</button>
+</div>
+</section>
+</div>
+<!-- Footer Form / Right Panel -->
+<div class="lg:col-span-4 lg:sticky lg:top-[144px]">
+<form class="bg-surface-container-lowest p-md md:p-lg rounded-xl shadow-lg border border-surface-container space-y-md" id="booking-form">
+<h3 class="font-h3 text-h3 text-on-surface border-b border-surface-container pb-md">Ваши данные</h3>
+<div class="space-y-base">
+<label class="font-label text-label text-outline ml-1">Имя и Фамилия</label>
+<input class="w-full p-3 rounded-xl border border-surface-container bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="Введите ваше имя" type="text"/>
+</div>
+<div class="space-y-base">
+<label class="font-label text-label text-outline ml-1">Номер телефона</label>
+<input class="w-full p-3 rounded-xl border border-surface-container bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="+7 (___) ___-__-__" type="tel"/>
+</div>
+<div class="pt-md">
+<button class="w-full py-4 rounded-full bg-primary text-on-primary font-button hover:opacity-90 active:scale-95 transition-all shadow-md shadow-primary/20" onclick="showDemoModal()" type="button">
+                            Отправить заявку (демо)
+                        </button>
+</div>
+<p class="font-small text-small text-outline text-center mt-sm">Нажимая кнопку, вы соглашаетесь с условиями обработки персональных данных</p>
+</form>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Mobile only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 flex justify-around items-center py-sm bg-surface dark:bg-on-surface shadow-[0_-4px_12px_0_rgba(0,0,0,0.05)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:bg-surface-container-low dark:hover:bg-surface-variant p-2 transition-transform active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label text-label">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed font-bold hover:bg-surface-container-low dark:hover:bg-surface-variant p-2 transition-transform active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="medical_information">medical_information</span>
+<span class="font-label text-label">Doctors</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:bg-surface-container-low dark:hover:bg-surface-variant p-2 transition-transform active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance">account_balance</span>
+<span class="font-label text-label">Centers</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:bg-surface-container-low dark:hover:bg-surface-variant p-2 transition-transform active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label text-label">Profile</span>
+</a>
+</nav>
+<!-- Demo Modal Overlay -->
+<div class="hidden fixed inset-0 z-[60] flex items-center justify-center p-margin-mobile" id="demo-modal">
+<div class="absolute inset-0 bg-on-surface/40 backdrop-blur-sm" onclick="hideDemoModal()"></div>
+<div class="relative bg-surface-container-lowest p-lg rounded-2xl shadow-2xl max-w-sm w-full text-center scale-95 transition-transform duration-300" id="modal-content">
+<div class="w-16 h-16 bg-error-container text-error rounded-full flex items-center justify-center mx-auto mb-lg">
+<span class="material-symbols-outlined text-4xl" data-icon="report">report</span>
+</div>
+<h2 class="font-h2 text-h2 text-on-surface mb-md">Режим просмотра</h2>
+<p class="font-body text-body text-on-surface-variant mb-xl">В демо-режиме запись не отправлена. Это визуальный пример интерфейса.</p>
+<button class="w-full py-3 rounded-full bg-surface border border-outline-variant font-button text-on-surface hover:bg-surface-variant transition-colors" onclick="hideDemoModal()">
+                Понятно
+            </button>
+</div>
+</div>
+<script>
+        function toggleDropdown() {
+            const menu = document.getElementById('dropdown-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        function switchTab(btn) {
+            const buttons = btn.parentElement.querySelectorAll('button');
+            buttons.forEach(b => {
+                b.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+                b.classList.add('text-on-surface-variant', 'hover:bg-surface-container-high');
+            });
+            btn.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+            btn.classList.remove('text-on-surface-variant', 'hover:bg-surface-container-high');
+        }
+
+        function showDemoModal() {
+            const modal = document.getElementById('demo-modal');
+            const content = document.getElementById('modal-content');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                content.classList.remove('scale-95');
+                content.classList.add('scale-100');
+            }, 10);
+        }
+
+        function hideDemoModal() {
+            const modal = document.getElementById('demo-modal');
+            const content = document.getElementById('modal-content');
+            content.classList.remove('scale-100');
+            content.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 200);
+        }
+
+        // Close dropdown on click outside
+        window.onclick = function(event) {
+            if (!event.target.closest('#doctor-select')) {
+                const menu = document.getElementById('dropdown-menu');
+                if (!menu.classList.contains('hidden')) {
+                    menu.classList.add('hidden');
+                }
+            }
+        }
+    </script>
+</body></html>

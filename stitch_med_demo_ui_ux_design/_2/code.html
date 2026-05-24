@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>МедСервис - Список врачей</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        /* Custom scrollbar for clean UI */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #bbcac6;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface": "#121c2a",
+                    "surface-container-highest": "#d9e3f6",
+                    "secondary-fixed-dim": "#ffb3ad",
+                    "on-background": "#121c2a",
+                    "on-surface-variant": "#3c4947",
+                    "on-secondary-fixed": "#410004",
+                    "surface-tint": "#006b5f",
+                    "surface-bright": "#f8f9ff",
+                    "on-primary": "#ffffff",
+                    "primary-fixed": "#71f8e4",
+                    "on-primary-fixed-variant": "#005048",
+                    "on-secondary-container": "#fffbff",
+                    "surface": "#f8f9ff",
+                    "on-tertiary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-container": "#6c2106",
+                    "inverse-surface": "#27313f",
+                    "secondary-container": "#da3437",
+                    "tertiary-fixed": "#ffdbd0",
+                    "tertiary-container": "#f38764",
+                    "inverse-on-surface": "#eaf1ff",
+                    "primary-fixed-dim": "#4fdbc8",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed-variant": "#930013",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed": "#ffdad7",
+                    "primary": "#006b5f",
+                    "tertiary": "#9b4426",
+                    "on-tertiary-fixed-variant": "#7c2d11",
+                    "secondary": "#b61722",
+                    "background": "#f8f9ff",
+                    "outline": "#6c7a77",
+                    "on-error": "#ffffff",
+                    "surface-container": "#e6eeff",
+                    "error": "#ba1a1a",
+                    "surface-variant": "#d9e3f6",
+                    "inverse-primary": "#4fdbc8",
+                    "primary-container": "#14b8a6",
+                    "outline-variant": "#bbcac6",
+                    "on-tertiary-fixed": "#3a0b00",
+                    "on-primary-container": "#00423b",
+                    "surface-container-low": "#eff4ff",
+                    "surface-dim": "#d0dbed",
+                    "surface-container-high": "#dee9fc",
+                    "on-primary-fixed": "#00201c",
+                    "tertiary-fixed-dim": "#ffb59e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "lg": "24px",
+                    "base": "4px",
+                    "margin-desktop": "48px",
+                    "md": "16px",
+                    "xl": "32px",
+                    "sm": "8px",
+                    "xs": "4px",
+                    "gutter": "16px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "h3": ["Inter"],
+                    "h1-mobile": ["Inter"],
+                    "h2": ["Inter"],
+                    "body": ["Inter"],
+                    "small": ["Inter"],
+                    "h1": ["Inter"],
+                    "button": ["Inter"],
+                    "label": ["Inter"]
+            },
+            "fontSize": {
+                    "h3": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "h1-mobile": ["26px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "h2": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "small": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "h1": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "button": ["16px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "label": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen pb-32">
+<!-- Top AppBar Component -->
+<header class="bg-surface dark:bg-on-surface docked full-width top-0 h-[120px] sticky z-50 transition-all duration-300">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop w-full h-full">
+<div class="font-h2 text-h2-mobile md:text-h2 text-primary dark:text-primary-fixed flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="medical_services">medical_services</span>
+<span>МедСервис Demo</span>
+</div>
+<button class="hover:opacity-80 transition-opacity active:scale-95 duration-100 text-primary dark:text-primary-fixed">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+<!-- System Status Banner (NavigationDrawer style from JSON) -->
+<div class="w-full py-base px-margin-mobile flex items-center gap-sm bg-surface-container-low dark:bg-surface-container-highest">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="calendar_today">calendar_today</span>
+<span class="font-small text-small text-on-surface-variant">Демо-режим. Данные не сохраняются</span>
+</div>
+<!-- Sticky Filters Section -->
+<section class="sticky top-[120px] z-40 bg-surface/80 backdrop-blur-md px-margin-mobile py-md space-y-sm">
+<div class="flex flex-col md:flex-row gap-sm items-center w-full max-w-[1200px] mx-auto">
+<!-- Search Bar -->
+<div class="relative w-full flex-grow">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full h-[48px] pl-12 pr-4 bg-surface-container-lowest border-none rounded-xl font-body text-body shadow-sm focus:ring-2 focus:ring-primary outline-none" placeholder="Врач, диагноз..." type="text"/>
+</div>
+<!-- Specialty Dropdown -->
+<div class="relative w-full md:w-[240px]">
+<select class="appearance-none w-full h-[48px] px-4 pr-10 bg-surface-container-lowest border-none rounded-full font-body text-body shadow-sm focus:ring-2 focus:ring-primary outline-none cursor-pointer">
+<option>Все специальности</option>
+<option>Терапевт</option>
+<option>Кардиолог</option>
+<option>Невролог</option>
+<option>Хирург</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-outline pointer-events-none" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+</section>
+<!-- Main Content: Doctor List -->
+<main class="px-margin-mobile md:px-margin-desktop py-lg max-w-[1200px] mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
+<!-- Doctor Card 1 -->
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-[0_4px_12px_0_rgba(0,0,0,0.05)] hover:shadow-md transition-shadow flex flex-col gap-md">
+<div class="flex items-center gap-md">
+<img class="w-16 h-16 rounded-full object-cover border-2 border-primary-container" data-alt="A professional male doctor in a clean white medical coat, smiling warmly towards the camera in a brightly lit modern hospital setting. The lighting is soft and clinical, emphasizing trust and professional care. The color palette is dominated by sterile whites and calming teals, reflecting a high-end healthcare environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoGY3YCpDEiGT25ffilHd7WQp8Xfg4cViWisPQx0-x0yv9njURRFtvYLeq_SgOIEfZvXkLEW8-pIDDTDHYsblfp5kqho89N7POsIv82hD3a346t1c8frC8z1FiMJ0gOxax_eC7z1dLCrURM1lclsDivIxW4yvccHFQlAB1b_BarvISf4RRrxX8bf8D1_QCNQbO7N3pUzX4lqisoF2YGo-mHrZaVRzvQNj-qREexG28mGmGKYphoazLMa_GbVAt6CZ_arOZh08YO9k"/>
+<div class="flex-grow">
+<h3 class="font-h3 text-h3 text-on-surface">Иванов Петр Сергеевич</h3>
+<p class="font-small text-small text-outline">Терапевт • Стаж 12 лет</p>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[18px] text-tertiary-container" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label text-label font-bold text-on-surface">4.8</span>
+<span class="font-label text-label text-outline">(124 отзыва)</span>
+</div>
+</div>
+</div>
+<div class="flex gap-2 flex-wrap">
+<span class="px-2 py-1 bg-surface-container text-primary font-label text-[10px] rounded-md uppercase tracking-wider">Высшая категория</span>
+<span class="px-2 py-1 bg-surface-container text-primary font-label text-[10px] rounded-md uppercase tracking-wider">КМН</span>
+</div>
+<button class="w-full h-10 rounded-full bg-primary text-on-primary font-button text-button hover:opacity-90 active:scale-95 transition-all">
+                    Записаться
+                </button>
+</div>
+<!-- Doctor Card 2 -->
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-[0_4px_12px_0_rgba(0,0,0,0.05)] hover:shadow-md transition-shadow flex flex-col gap-md">
+<div class="flex items-center gap-md">
+<img class="w-16 h-16 rounded-full object-cover border-2 border-primary-container" data-alt="A confident female doctor with a stethoscope around her neck, standing in a minimalist medical office with soft natural window light. She has a welcoming expression that conveys empathy and expertise. The aesthetic is clean, modern, and high-utility, using a palette of crisp whites and subtle turquoise accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBh0C6eL3usla06VxDoju3HZNruXYOvKNSkt3qW1qEdDa_SbHw9jxyI3l4AHSDql9pkvSyRuaYXNTO818ii4OivTtMFrfEDvDfAM64wcmvbHVktK8_fgTpk9jnz5xup7Lg0DI8t1tMN2T1vMkDpox4DvAhO-DH7-FC3kxu3wrJUVHhXetKhHo1mR6n7v_RWooa4ME2T4OpMjBBHBcvpB56vdfL0vbX8gxZTVE5O40Y54TQbXQPngrXaxEWKbUQ9TDKqUnsDi1-O5gc"/>
+<div class="flex-grow">
+<h3 class="font-h3 text-h3 text-on-surface">Смирнова Елена Викторовна</h3>
+<p class="font-small text-small text-outline">Кардиолог • Стаж 15 лет</p>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[18px] text-tertiary-container" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label text-label font-bold text-on-surface">4.9</span>
+<span class="font-label text-label text-outline">(256 отзывов)</span>
+</div>
+</div>
+</div>
+<div class="flex gap-2 flex-wrap">
+<span class="px-2 py-1 bg-surface-container text-primary font-label text-[10px] rounded-md uppercase tracking-wider">Доцент</span>
+</div>
+<button class="w-full h-10 rounded-full bg-primary text-on-primary font-button text-button hover:opacity-90 active:scale-95 transition-all">
+                    Записаться
+                </button>
+</div>
+<!-- Doctor Card 3 (No Slots / Disabled) -->
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-[0_4px_12px_0_rgba(0,0,0,0.05)] hover:shadow-md transition-shadow flex flex-col gap-md opacity-80">
+<div class="flex items-center gap-md">
+<img class="w-16 h-16 rounded-full object-cover border-2 border-outline-variant grayscale" data-alt="A senior male specialist doctor in a professional setting, looking thoughtful and experienced. He is set against a background of high-end medical equipment with soft-focus bokeh. The lighting is balanced and calm, evoking a sense of long-standing trust and expertise in a professional healthcare environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9u8dfEyZ9fYOqna9KRlV9dpwds7X0LT3Vm-ke2p6OJPMqjvshKq-dTZRP1pvMtWIY8s0upYr5GCaFN5sPVb8zMPfK0yWlWZkXBOVJkWDUjQygn_EIvuvVrO0ONI35IhWoskCa4WB-Lru1Njfb45q3NyCKD6eeO99TBd4FGIlrjOpC51urceY1-tD3t1Laj7ZGL-BDEYqBzbtI4aJo6B9EXG98DX1Wh6hb-5Rv5c1RuWawWukZPQeGcwR6tMxxWSZmCDxcfW5L9xg"/>
+<div class="flex-grow">
+<h3 class="font-h3 text-h3 text-on-surface">Кузнецов Игорь Олегович</h3>
+<p class="font-small text-small text-outline">Невролог • Стаж 22 года</p>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[18px] text-tertiary-container" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label text-label font-bold text-on-surface">5.0</span>
+<span class="font-label text-label text-outline">(89 отзывов)</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2 text-error text-[12px] font-medium">
+<span class="material-symbols-outlined text-[16px]" data-icon="event_busy">event_busy</span>
+                    Нет свободных слотов на ближайшую неделю
+                </div>
+<button class="w-full h-10 rounded-full bg-outline-variant text-on-surface-variant font-button text-button cursor-not-allowed" disabled="">
+                    Записаться
+                </button>
+</div>
+<!-- Doctor Card 4 -->
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-[0_4px_12px_0_rgba(0,0,0,0.05)] hover:shadow-md transition-shadow flex flex-col gap-md">
+<div class="flex items-center gap-md">
+<img class="w-16 h-16 rounded-full object-cover border-2 border-primary-container" data-alt="A friendly female pediatrician in a colorful but professional medical environment designed for children's comfort. The room is brightly lit with high-key lighting, featuring soft pastel accents and a clean modern aesthetic. The doctor has a kind smile and wears a stethoscope with a small toy attached, representing pediatric care." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrn7boDGApkfDcaF4mS7kWXagQSWbAbdMVfTVK72BDftPn8TwdPgRfX4BBoE8d-D8IhCCAyDloFWEQ8PtMSC2DcRJFx8i80NvKlxY5xHWazs6JlwKjOyzUhHVWOAKdO8SgXwMSbk9_MiH3kI5GDKwPMg5YgTl7_QeKaegWSVF9M7lTKNr-66i7DygBpuOEVXsyL1dKOVYhy44-UvApq_dthipWrw7qpKqEeNLYEkfV6uh_au3e61r6wF6MStlfwouCQYj8mWPnGMg"/>
+<div class="flex-grow">
+<h3 class="font-h3 text-h3 text-on-surface">Васильева Анна Юрьевна</h3>
+<p class="font-small text-small text-outline">Педиатр • Стаж 8 лет</p>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[18px] text-tertiary-container" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label text-label font-bold text-on-surface">4.7</span>
+<span class="font-label text-label text-outline">(45 отзывов)</span>
+</div>
+</div>
+</div>
+<div class="flex gap-2 flex-wrap">
+<span class="px-2 py-1 bg-surface-container text-primary font-label text-[10px] rounded-md uppercase tracking-wider">Выезд на дом</span>
+</div>
+<button class="w-full h-10 rounded-full bg-primary text-on-primary font-button text-button hover:opacity-90 active:scale-95 transition-all">
+                    Записаться
+                </button>
+</div>
+<!-- Doctor Card 5 -->
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-[0_4px_12px_0_rgba(0,0,0,0.05)] hover:shadow-md transition-shadow flex flex-col gap-md">
+<div class="flex items-center gap-md">
+<img class="w-16 h-16 rounded-full object-cover border-2 border-primary-container" data-alt="A focused male surgeon in sterile scrubs, standing in a state-of-the-art surgical department corridor. The background is slightly blurred showing technological medical displays and clean metallic surfaces. The atmosphere is professional and high-stakes, lit with cool, bright architectural lighting that defines a high-end modern medical facility." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6M0merkGIHcZWEctUV9Vnnwi-vlKzA5X3ckYpAB8yMMnCFSHzAQb-GTI07HTlkcT2a8krmsrzHNciiO8DQnksLwp_ityB6ay7uCR2cS3SUHiMGGDJcUcOdJQsljA1hmdi-ylzMKupk3KJSEdpQDgmmwLyBB64sIuE7uI3FS6qEbpUhUEpxHk5SaNcXEi-t7DVCJUw4No9c4DTQdcDVK0lQFyZvTZoqZayK44Er38O99NtqNePCs5nq0ViCYyN5Yp5QUA6D-LI_gE"/>
+<div class="flex-grow">
+<h3 class="font-h3 text-h3 text-on-surface">Соколов Артем Андреевич</h3>
+<p class="font-small text-small text-outline">Хирург • Стаж 18 лет</p>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[18px] text-tertiary-container" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label text-label font-bold text-on-surface">4.9</span>
+<span class="font-label text-label text-outline">(182 отзыва)</span>
+</div>
+</div>
+</div>
+<div class="flex gap-2 flex-wrap">
+<span class="px-2 py-1 bg-surface-container text-primary font-label text-[10px] rounded-md uppercase tracking-wider">Оперирующий</span>
+<span class="px-2 py-1 bg-surface-container text-primary font-label text-[10px] rounded-md uppercase tracking-wider">Стационар</span>
+</div>
+<button class="w-full h-10 rounded-full bg-primary text-on-primary font-button text-button hover:opacity-90 active:scale-95 transition-all">
+                    Записаться
+                </button>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar Component -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center py-sm bg-surface dark:bg-on-surface rounded-t-xl shadow-lg transition-transform md:hidden">
+<div class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:bg-surface-container-low dark:hover:bg-surface-variant p-2 rounded-lg transition-all cursor-pointer">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label text-label">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:bg-surface-container-low dark:hover:bg-surface-variant p-2 rounded-lg transition-all cursor-pointer">
+<span class="material-symbols-outlined" data-icon="account_balance">account_balance</span>
+<span class="font-label text-label">Centers</span>
+</div>
+<!-- Active Tab: Doctors -->
+<div class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed font-bold p-2 rounded-lg transition-all cursor-pointer active:scale-90">
+<span class="material-symbols-outlined" data-icon="medical_information" style="font-variation-settings: 'FILL' 1;">medical_information</span>
+<span class="font-label text-label">Doctors</span>
+</div>
+<div class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:bg-surface-container-low dark:hover:bg-surface-variant p-2 rounded-lg transition-all cursor-pointer">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label text-label">Profile</span>
+</div>
+</nav>
+<!-- Desktop Navigation Side Anchors (Hidden on Mobile) -->
+<div class="hidden md:flex fixed right-8 bottom-8 flex-col gap-4 z-50">
+<button class="w-14 h-14 bg-primary text-on-primary rounded-full shadow-lg flex items-center justify-center hover:scale-105 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+</button>
+</div>
+<script>
+        // Simple micro-interaction for the search bar
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('scale-[1.02]');
+            searchInput.parentElement.classList.add('transition-transform');
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('scale-[1.02]');
+        });
+
+        // Hide header on scroll for cleaner browsing
+        let lastScroll = 0;
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > lastScroll && currentScroll > 120) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+            lastScroll = currentScroll;
+        });
+    </script>
+</body></html>
